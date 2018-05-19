@@ -20,7 +20,6 @@ function createWindow() {
     });
   else 
     mainWindow = new BrowserWindow({
-      frame: false,
       width: 1281,
       height: 800,
       minWidth: 1281,
@@ -67,6 +66,10 @@ function createWindow() {
 
 ipcMain.on('open-second-window', (event, arg) => {
   secondWindow.show()
+})
+
+ipcMain.on('close-second-window', (event, arg) => {
+  secondWindow.hide()
 })
 
 app.on('ready', createWindow);
